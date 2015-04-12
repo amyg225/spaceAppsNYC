@@ -20,6 +20,7 @@ var sensor3;
 
 digitalPin.dir(mraa.DIR_OUT);
 setInterval(function() {
+  console.log('HI');
   sensor1 = analogPin0.read();
   sensor2 = analogPin1.read();
   sensor3 = analogPin2.read();
