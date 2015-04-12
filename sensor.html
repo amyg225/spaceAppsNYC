@@ -12,65 +12,57 @@
     <div id="center"></div>
     <div id="right"></div>
   </body>
+
   <script>
-
-    var left = document.getElementById('left')
-    var center = document.getElementById('center')
-    var right = document.getElementById('right')
-
-    setInterval(function(){
-      var c = Math.floor((Math.random() * 400 * 2) + 1);
-      left.innerHTML = c;
-
-      var color;
-
-      if (c < 200){
-        color = 'green';
-        $(left).addClass('green');
-        $(left).removeClass('yellow');
-        $(left).removeClass('red');
-      } else if (c > 201 && c < 500) {
-        color = 'yellow';
-        $(left).addClass('yellow');
-        $(left).removeClass('green');
-        $(left).removeClass('red');
-      } else {
-        color = 'red'
-        $(left).addClass('red');
-        $(left).removeClass('yellow');
-        $(left).removeClass('green');
-      }
-
-      // this code just for simulation
-      if (c < 200){
-        $(right).addClass('green');
-        $(right).removeClass('yellow');
-        $(right).removeClass('red');
-      } else if (c > 201 && c < 500) {
-        $(right).toggleClass('yellow').toggleClass('red').toggleClass('green');
-        $(center).toggleClass('yellow').toggleClass('red').toggleClass('green');
-
-      } else if (c > 500) {
-        $(right).toggleClass('green').toggleClass('red').toggleClass('green');
-        $(center).toggleClass('yellow').toggleClass('red').toggleClass('green');
-      }
-      console.log(c);
-    }, 1000);
-  </script>
-
-<!--   <script>
+  setInterval(function(){
     var sensor1;
     var sensor2;
     var sensor3;
+    var a = Math.floor((Math.random() * 400 * 2) + 1);
+    var b  = Math.floor((Math.random() * 400 * 2) + 1);
+    var c  = Math.floor((Math.random() * 400 * 2) + 1);
+    console.log(a);
     $.ajax({
       dataType: "json",
-      url: "http://192.168.0.108:3000/sensors",
-      data: data,
-      success: success
+      // url: "http://192.168.0.108:3000/sensors",
+      url: "#",
+      data: { sensor1: a, sensor2: b, sensor: c },
+      // success: success
     }).done(function( data ) {
-      sensor1 = data.sensor1;
-      sensor2 = data.sensor2;
-      sensor3 = data.sensor3;
+      sensor1 = a;
+      sensor2 = b;
+      sensor3 = c;
     });
-  </script> -->
+    // simulated
+    sensor1 = a;
+    sensor2 = b;
+    sensor3 = c;
+    console.log(sensor2);
+
+
+    if (sensor1 < 200){
+      $(left).addClass('green').removeClass('yellow red');
+    } else if (sensor1 > 201 && sensor1 < 500) {
+      $(left).addClass('yellow').removeClass('green red');
+    } else {
+      $(left).addClass('red').removeClass('yellow green');
+    }
+
+    if (sensor2 < 200){
+      $(center).addClass('green').removeClass('yellow red');
+    } else if (sensor2 > 201 && sensor2 < 500) {
+      $(center).addClass('yellow').removeClass('green red');
+    } else {
+      $(center).addClass('red').removeClass('yellow green');
+    }
+
+    if (sensor3 < 200){
+      $(right).addClass('green').removeClass('yellow red');
+    } else if (sensor3 > 201 && sensor3 < 500) {
+      $(right).addClass('yellow').removeClass('green red');
+    } else {
+      $(right).addClass('red').removeClass('yellow green');
+    }
+  }, 1000);
+  </script>
 </html>
