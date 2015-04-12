@@ -22,23 +22,12 @@
       var c = Math.floor((Math.random() * 400 * 2) + 1);
       left.innerHTML = c;
 
-      var color;
-
       if (c < 200){
-        color = 'green';
-        $(left).addClass('green');
-        $(left).removeClass('yellow');
-        $(left).removeClass('red');
+        $(left).addClass('green').removeClass('yellow red');
       } else if (c > 201 && c < 500) {
-        color = 'yellow';
-        $(left).addClass('yellow');
-        $(left).removeClass('green');
-        $(left).removeClass('red');
+        $(left).addClass('yellow').removeClass('green red');
       } else {
-        color = 'red'
-        $(left).addClass('red');
-        $(left).removeClass('yellow');
-        $(left).removeClass('green');
+        $(left).addClass('red').removeClass('yellow green');
       }
 
       // this code just for simulation
@@ -55,10 +44,10 @@
         $(center).toggleClass('yellow').toggleClass('red').toggleClass('green');
       }
       console.log(c);
-    }, 1000);
+    }, 5000);
   </script>
 
-<!--   <script>
+  <script>
     var sensor1;
     var sensor2;
     var sensor3;
@@ -72,5 +61,30 @@
       sensor2 = data.sensor2;
       sensor3 = data.sensor3;
     });
-  </script> -->
+
+    if (sensor1 < 200){
+      $(left).addClass('green').removeClass('yellow red');
+    } else if (sensor1 > 201 && sensor1 < 500) {
+      $(left).addClass('yellow').removeClass('green red');
+    } else {
+      $(left).addClass('red').removeClass('yellow green');
+    }
+
+    if (sensor2 < 200){
+      $(center).addClass('green').removeClass('yellow red');
+    } else if (sensor2 > 201 && sensor2 < 500) {
+      $(center).addClass('yellow').removeClass('green red');
+    } else {
+      $(center).addClass('red').removeClass('yellow green');
+    }
+
+    if (sensor3 < 200){
+      $(right).addClass('green').removeClass('yellow red');
+    } else if (sensor3 > 201 && sensor3 < 500) {
+      $(right).addClass('yellow').removeClass('green red');
+    } else {
+      $(right).addClass('red').removeClass('yellow green');
+    }
+
+  </script>
 </html>
