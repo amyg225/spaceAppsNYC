@@ -1,6 +1,7 @@
 div {
   height: 500px;
-  width: 33%;
+  width: 30%;
+  float: left;
 }
 
 .green {

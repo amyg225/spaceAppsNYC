@@ -3,7 +3,7 @@
   <head>
     <title>SpaceAppsNYC</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="jquery.minified.js"></script>
 
   </head>
 
@@ -13,22 +13,64 @@
     <div id="right"></div>
   </body>
   <script>
-    var c = 0;
-    var left = document.getElementById('left')
-    setInterval(function(){
-      c++;
-      if (c < 10){
-        left.innerHTML = 'green';
-        // left.addClass('green');
-      } else if (c > 11 && c < 20) {
-        left.innerHTML = 'yellow';
-        // left.addClass('green');
 
-      } else if (c > 21 && c < 30) {
-        left.innerHTML = 'red';
-        // left.addClass('green');
+    var left = document.getElementById('left')
+    var center = document.getElementById('center')
+    var right = document.getElementById('right')
+
+    setInterval(function(){
+      var c = Math.floor((Math.random() * 400 * 2) + 1);
+      left.innerHTML = c;
+
+      var color;
+
+      if (c < 200){
+        color = 'green';
+        $(left).addClass('green');
+        $(left).removeClass('yellow');
+        $(left).removeClass('red');
+      } else if (c > 201 && c < 500) {
+        color = 'yellow';
+        $(left).addClass('yellow');
+        $(left).removeClass('green');
+        $(left).removeClass('red');
+      } else {
+        color = 'red'
+        $(left).addClass('red');
+        $(left).removeClass('yellow');
+        $(left).removeClass('green');
+      }
+
+      // this code just for simulation
+      if (c < 200){
+        $(right).addClass('green');
+        $(right).removeClass('yellow');
+        $(right).removeClass('red');
+      } else if (c > 201 && c < 500) {
+        $(right).toggleClass('yellow').toggleClass('red').toggleClass('green');
+        $(center).toggleClass('yellow').toggleClass('red').toggleClass('green');
+
+      } else if (c > 500) {
+        $(right).toggleClass('green').toggleClass('red').toggleClass('green');
+        $(center).toggleClass('yellow').toggleClass('red').toggleClass('green');
       }
       console.log(c);
-    }, 500);
+    }, 1000);
   </script>
+
+<!--   <script>
+    var sensor1;
+    var sensor2;
+    var sensor3;
+    $.ajax({
+      dataType: "json",
+      url: "http://192.168.0.108:3000/sensors",
+      data: data,
+      success: success
+    }).done(function( data ) {
+      sensor1 = data.sensor1;
+      sensor2 = data.sensor2;
+      sensor3 = data.sensor3;
+    });
+  </script> -->
 </html>
