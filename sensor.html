@@ -12,7 +12,7 @@
     <div id="center"></div>
     <div id="right"></div>
   </body>
-  <script>
+<!--   <script>
 
     var left = document.getElementById('left')
     var center = document.getElementById('center')
@@ -45,22 +45,23 @@
       }
       console.log(c);
     }, 5000);
-  </script>
+  </script> -->
 
   <script>
-    var sensor1;
-    var sensor2;
-    var sensor3;
-    $.ajax({
-      dataType: "json",
-      url: "http://192.168.0.108:3000/sensors",
-      data: data,
-      success: success
-    }).done(function( data ) {
-      sensor1 = data.sensor1;
-      sensor2 = data.sensor2;
-      sensor3 = data.sensor3;
-    });
+  setInterval(function(){
+    var sensor1 = Math.floor((Math.random() * 400 * 2) + 1);
+    var sensor2  = Math.floor((Math.random() * 400 * 2) + 1);
+    var sensor3  = Math.floor((Math.random() * 400 * 2) + 1);
+    // $.ajax({
+    //   dataType: "json",
+    //   url: "http://192.168.0.108:3000/sensors",
+    //   data: data,
+    //   success: success
+    // }).done(function( data ) {
+    //   sensor1 = data.sensor1;
+    //   sensor2 = data.sensor2;
+    //   sensor3 = data.sensor3;
+    // });
 
     if (sensor1 < 200){
       $(left).addClass('green').removeClass('yellow red');
@@ -85,6 +86,6 @@
     } else {
       $(right).addClass('red').removeClass('yellow green');
     }
-
+  }, 1000);
   </script>
 </html>
