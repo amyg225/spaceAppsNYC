@@ -1,17 +1,49 @@
 div {
-  height: 500px;
-  width: 30%;
+  height: 100%;
+  width: 33.3%;
   float: left;
 }
 
-.green {
-  background-color: green;
+.zero {
+  background-color: #000000;
 }
 
-.yellow {
-  background-color: yellow;
+.one {
+  background-color: #111111;
 }
 
-.red {
-  background-color: red;
+.two {
+  background-color: #222222;
 }
+.three {
+  background-color: #333333;
+}
+
+.four {
+  background-color: #444444;
+}
+
+.five {
+  background-color: #555555;
+}
+
+.six {
+  background-color: #666666;
+}
+
+.seven {
+  background-color: #777777;
+}
+
+.eight {
+  background-color: #888888;
+}
+
+.nine {
+  background-color: #999999;
+}
+
+.ten {
+  background-color: #aaaaaa;
+}
+
